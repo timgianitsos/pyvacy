@@ -130,8 +130,8 @@ if __name__ == '__main__':
         ])
     )
 
-    X, y = next(iter(DataLoader(test_dataset, batch_size=len(test_dataset))))
-    X, y  = X.to('cuda'), y.to('cuda')
+    X, y = next(iter(torch.utils.data.DataLoader(test_dataset, batch_size=len(test_dataset))))
+    X, y  = X.to(params['device']), y.to(params['device'])
 
     y_pred = classifier(X).max(1)[1]
 
